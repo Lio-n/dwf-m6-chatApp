@@ -31,21 +31,17 @@ class ChatPage extends HTMLElement {
     });
   }
   render() {
-    const actualName = state.getState();
+    const { nombre } = state.getState();
     this.innerHTML = `
       <div>
         <h1 class="title">Chat</h1>
         <div class="messages">
           ${this.messages
             .map((m) => {
-              return `<div class="message ${
-                m.from == actualName.nombre ? "myMsg" : "anotherMsg"
-              }">
-                        <span class="anotherMsg">${
-                          m.from == actualName.nombre ? "" : m.from
-                        }</span>
+              return `<div class="message ${m.from == nombre ? "myMsg" : "anotherMsg"}">
+                        <span class="anotherMsg">${m.from == nombre ? "" : m.from}</span>
                         <span class="user__message ${
-                          m.from == actualName.nombre ? "myUser" : "anotherUser"
+                          m.from == nombre ? "myUser" : "anotherUser"
                         }">${m.message}</span>
                       </div>`;
             })

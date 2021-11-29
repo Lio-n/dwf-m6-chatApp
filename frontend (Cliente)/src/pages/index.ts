@@ -13,12 +13,12 @@ class Home extends HTMLElement {
     input.setAttribute("placeholder", "Ingresar Nombre..");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const target = e.target as any;
+      const { nombre } = e.target as any;
       let menu = false;
-      if (!menu && target.nombre.value) {
+      if (!menu && nombre.value) {
         formWarning.classList.add("remove");
-        state.setNombre(target.nombre.value);
-        Router.go("/chat");
+        state.setNombre(nombre.value); // ! Envio la data al STATE
+        Router.go("/chat"); // ! Cambio de RUTA
         menu = true;
       } else {
         formWarning.classList.add("open");

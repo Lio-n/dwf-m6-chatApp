@@ -11,7 +11,7 @@ const state = {
     const currentState = this.getState();
 
     chatroomsRef.on("value", (snapchot) => {
-      const messageFromServer = snapchot.val(); // ! Retorna Todo lo que contenga esta RUTA '/chatrooms/general'
+      const messageFromServer = snapchot.val(); // ! Retorna Todo lo que contenga la RUTA '/chatrooms/general'
       const messagesList = map(messageFromServer.messages); // ! Crea un ARRAY de todos los mensajes ALMACENADOS en RTDB
       currentState.messages = messagesList; // * Cada vez halla un cambio, se reemplazara ("Pisa") la info original
       this.setState(currentState);
